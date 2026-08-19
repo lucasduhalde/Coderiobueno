@@ -1,4 +1,4 @@
-import { redis, configurado, ip, limite } from '../lib/store.js';
+import { redis, configurado, ip, limite, mismoOrigen } from '../lib/store.js';
 
 const LISTA = 'crb:firmas';
 const TOTAL = 'crb:firmas:total';
@@ -10,9 +10,18 @@ const emailValido = (e) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e);
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
   if (req.method !== 'POST') return res.status(405).json({ error: 'metodo-no-permitido' });
+  if (!mismoOrigen(req)) return res.status(403).json({ error: 'origen-no-permitido' });
   if (!configurado) return res.status(503).json({ error: 'store-no-configurado' });
 
-  const cuerpo = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
+  let cuerpo;
+  try {
+    cuerpo = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
+  } catch {
+    return res.status(400).json({ error: 'cuerpo-invalido' });
+  }
+  if (typeof cuerpo !== 'object' || cuerpo === null) {
+    return res.status(400).json({ error: 'cuerpo-invalido' });
+  }
 
   // Honeypot: los bots rellenan campos ocultos.
   if (limpiar(cuerpo.campo_reservado, 200)) return res.status(200).json({ ok: true, total: null });

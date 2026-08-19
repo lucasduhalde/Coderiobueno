@@ -1,4 +1,12 @@
-import { redis, configurado } from '../lib/store.js';
+import { redis, configurado, tokenValido } from '../lib/store.js';
+
+// Excel y LibreOffice ejecutan como fórmula toda celda que empiece por = + - @
+// o por un control. Se antepone una comilla para que quede como texto plano.
+function celda(v) {
+  let t = String(v ?? '');
+  if (/^[=+\-@\t\r]/.test(t)) t = `'${t}`;
+  return `"${t.replace(/"/g, '""')}"`;
+}
 
 const LISTA = 'crb:firmas';
 const TOTAL = 'crb:firmas:total';
@@ -14,12 +22,12 @@ export default async function handler(req, res) {
 
   try {
     if (token) {
-      if (!admin || token !== admin) return res.status(401).json({ error: 'no-autorizado' });
+      if (!tokenValido(token, admin)) return res.status(401).json({ error: 'no-autorizado' });
       const filas = (await redis('LRANGE', LISTA, '0', '-1')).map((f) => JSON.parse(f));
       const csv = ['fecha,nombre,comuna,email,mensaje']
         .concat(filas.map((f) => [f.fecha, f.nombre, f.comuna, f.email, f.mensaje]
-          .map((c) => `"${String(c ?? '').replace(/"/g, '""')}"`).join(',')))
-        .join('\n');
+          .map(celda).join(',')))
+        .join('\r\n');
       res.setHeader('Content-Type', 'text/csv; charset=utf-8');
       res.setHeader('Content-Disposition', 'attachment; filename="firmas-riobueno.csv"');
       return res.status(200).send(csv);
