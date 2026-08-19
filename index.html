@@ -58,8 +58,9 @@ a{color:var(--verde-2)}
 .marca svg{flex:none}
 .marca span{font-size:.9rem; max-width:15ch}
 .nav{margin-left:auto; display:flex; align-items:center; gap:.35rem}
-.nav a{padding:.5rem .8rem; border-radius:10px; text-decoration:none; color:var(--tinta-2); font-weight:600; font-size:.94rem}
-.nav a:hover{background:rgba(31,138,95,.10); color:var(--verde)}
+.nav a:not(.btn){padding:.5rem .8rem; border-radius:10px; text-decoration:none; color:var(--tinta-2); font-weight:600; font-size:.94rem}
+.nav a:not(.btn):hover{background:rgba(31,138,95,.10); color:var(--verde)}
+.nav .btn{padding:.6rem 1.15rem; font-size:.94rem}
 .nav .enlaces{display:none; gap:.35rem}
 @media(min-width:860px){ .nav .enlaces{display:flex} .marca span{max-width:none; font-size:1rem} }
 /* --- Botones --- */
