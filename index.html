@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corporación para el Desarrollo de Río Bueno</title>
+<meta name="description" content="Impulsamos el desarrollo sostenible, integral e inclusivo de Río Bueno, Región de Los Ríos. Súmate y firma por la causa.">
+<link rel="canonical" href="https://coderiobueno.cl/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:url" content="https://coderiobueno.cl/">
+<meta property="og:site_name" content="Corporación para el Desarrollo de Río Bueno">
+<meta property="og:title" content="Corporación para el Desarrollo de Río Bueno">
+<meta property="og:description" content="Una comuna próspera y sostenible. Súmate y firma por la causa.">
+<meta property="og:image" content="https://coderiobueno.cl/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0A3D2A">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230A3D2A'/><path d='M12 62c12-10 22 8 34-2s20 6 32-4' stroke='%237DD3C4' stroke-width='9' fill='none' stroke-linecap='round'/></svg>">
+<style>
+:root{
+  --verde:#0A3D2A; --verde-2:#12694A; --verde-3:#1F8A5F;
+  --agua:#0E6E6E; --agua-claro:#7DD3C4;
+  --tinta:#111111; --tinta-2:#3A3A3A;
+  --crema:#F7F6F1; --blanco:#FFFFFF; --borde:#E2E0D8;
+  --radio:16px; --ancho:1120px;
+  --sombra:0 1px 2px rgba(17,17,17,.05), 0 12px 32px -12px rgba(10,61,42,.22);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+#mision,#vision,#pilares,#firmar,#contacto{scroll-margin-top:84px}
+body{
+  margin:0; background:var(--crema); color:var(--tinta);
+  font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  font-size:clamp(16px,.6vw + 15px,18px); line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+h1,h2,h3{line-height:1.15; letter-spacing:-.02em; margin:0 0 .5em; color:var(--tinta)}
+h1{font-size:clamp(2rem,5.2vw,3.6rem); font-weight:800}
+h2{font-size:clamp(1.5rem,3.2vw,2.25rem); font-weight:750}
+h3{font-size:1.15rem; font-weight:700}
+p{margin:0 0 1rem}
+a{color:var(--verde-2)}
+.contenedor{width:100%; max-width:var(--ancho); margin-inline:auto; padding-inline:20px}
+.seccion{padding:clamp(56px,8vw,104px) 0}
+.etiqueta{
+  display:inline-flex; align-items:center; gap:.5rem; font-size:.78rem; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--verde-2);
+  background:rgba(31,138,95,.10); border:1px solid rgba(31,138,95,.22);
+  padding:.4rem .8rem; border-radius:999px; margin-bottom:1.1rem;
+}
+/* --- Barra --- */
+.barra{position:sticky; top:0; z-index:50; background:rgba(247,246,241,.88); backdrop-filter:blur(10px); border-bottom:1px solid var(--borde)}
+.barra .contenedor{display:flex; align-items:center; gap:1rem; min-height:68px}
+.marca{display:flex; align-items:center; gap:.65rem; font-weight:800; letter-spacing:-.02em; text-decoration:none; color:var(--tinta); line-height:1.15}
+.marca svg{flex:none}
+.marca span{font-size:.9rem; max-width:15ch}
+.nav{margin-left:auto; display:flex; align-items:center; gap:.35rem}
+.nav a{padding:.5rem .8rem; border-radius:10px; text-decoration:none; color:var(--tinta-2); font-weight:600; font-size:.94rem}
+.nav a:hover{background:rgba(31,138,95,.10); color:var(--verde)}
+.nav .enlaces{display:none; gap:.35rem}
+@media(min-width:860px){ .nav .enlaces{display:flex} .marca span{max-width:none; font-size:1rem} }
+/* --- Botones --- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+  padding:.8rem 1.35rem; border-radius:12px; border:1px solid transparent;
+  font:inherit; font-weight:700; font-size:.98rem; text-decoration:none; cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn:focus-visible{outline:3px solid var(--agua); outline-offset:2px}
+.btn-primario{background:var(--verde); color:#fff; box-shadow:var(--sombra)}
+.btn-primario:hover{background:var(--verde-2)}
+.btn-secundario{background:transparent; color:var(--verde); border-color:rgba(10,61,42,.28)}
+.btn-secundario:hover{background:rgba(31,138,95,.08)}
+.btn[disabled]{opacity:.6; cursor:not-allowed; transform:none}
+/* --- Hero --- */
+.hero{position:relative; overflow:hidden; background:linear-gradient(160deg,#0A3D2A 0%,#0F5A44 52%,#0E6E6E 100%); color:#fff}
+/* Foto de fondo del hero: descomentar para reponerla (necesita rio-bueno-1000/1600/2400.jpg).
+.hero::before{content:""; position:absolute; inset:0; z-index:0;
+  background-image:url('/rio-bueno-1000.jpg'); background-size:cover; background-position:center center;}
+@media(min-width:1001px){ .hero::before{ background-image:url('/rio-bueno-1600.jpg'); } }
+@media(min-width:1601px){ .hero::before{ background-image:url('/rio-bueno.jpg'); } }
+.hero::after{content:""; position:absolute; inset:0; z-index:1;
+  background:linear-gradient(to right, rgba(6,20,16,.80) 0%, rgba(6,20,16,.58) 42%, rgba(6,20,16,.18) 72%, rgba(6,20,16,.06) 100%),
+             linear-gradient(to bottom, rgba(6,20,16,.35) 0%, transparent 40%);}
+*/
+.hero .credito a{color:rgba(255,255,255,.75); text-decoration:underline}
+.hero .credito{
+  position:absolute; right:14px; bottom:14px; z-index:3;
+  font-size:.7rem; color:rgba(255,255,255,.55); letter-spacing:.04em;
+}
+.hero h1,.hero h2{color:#fff; text-shadow:0 2px 18px rgba(6,20,16,.55)}
+.hero .olas{position:absolute; z-index:2; inset:auto 0 -1px 0; width:100%; height:auto; opacity:.9}
+.hero .contenedor{position:relative; z-index:2; padding-top:clamp(60px,9vw,110px); padding-bottom:clamp(110px,14vw,180px)}
+.hero .etiqueta{color:#D8F3E7; background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.28)}
+.hero p.entrada{font-size:clamp(1.05rem,1.6vw,1.28rem); color:#EFF5F2; max-width:52ch; text-shadow:0 1px 12px rgba(6,20,16,.5)}
+.hero-acciones{display:flex; flex-wrap:wrap; gap:.75rem; margin-top:1.8rem}
+.hero .btn-secundario{color:#fff; border-color:rgba(255,255,255,.45)}
+.hero .btn-secundario:hover{background:rgba(255,255,255,.12)}
+.cifras{display:flex; flex-wrap:wrap; gap:.75rem; margin-top:2.5rem}
+.cifra{background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.20); border-radius:14px; padding:.85rem 1.1rem; min-width:150px}
+.cifra b{display:block; font-size:1.7rem; font-weight:800; letter-spacing:-.02em; line-height:1.1}
+.cifra small{color:#CFE6DC; font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; font-weight:600}
+/* --- Tarjetas misión/visión --- */
+.rejilla-2{display:grid; gap:clamp(20px,3vw,32px); grid-template-columns:1fr}
+@media(min-width:900px){ .rejilla-2{grid-template-columns:1fr 1fr} }
+.tarjeta{
+  background:var(--blanco); border:1px solid var(--borde); border-radius:var(--radio);
+  padding:clamp(24px,3.4vw,40px); box-shadow:var(--sombra); position:relative; overflow:hidden;
+}
+.tarjeta::before{content:""; position:absolute; inset:0 auto 0 0; width:5px; background:linear-gradient(180deg,var(--verde-3),var(--agua))}
+.tarjeta p{color:var(--tinta); font-size:1.03rem}
+.tarjeta .icono{width:46px; height:46px; border-radius:12px; display:grid; place-items:center; background:rgba(31,138,95,.12); margin-bottom:1rem}
+/* --- Pilares --- */
+.rejilla-3{display:grid; gap:18px; grid-template-columns:1fr}
+@media(min-width:640px){ .rejilla-3{grid-template-columns:repeat(2,1fr)} }
+@media(min-width:1000px){ .rejilla-3{grid-template-columns:repeat(4,1fr)} }
+.pilar{background:var(--blanco); border:1px solid var(--borde); border-radius:var(--radio); padding:22px}
+.pilar h3{margin-bottom:.35rem}
+.pilar p{color:var(--tinta-2); font-size:.95rem; margin:0}
+.pilar .punto{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:rgba(14,110,110,.10);margin-bottom:.9rem}
+/* --- Firmas --- */
+#firmar{background:linear-gradient(180deg,var(--crema) 0%, #EDF2EE 100%)}
+.panel-firma{display:grid; gap:clamp(24px,3vw,44px); grid-template-columns:1fr; align-items:start}
+@media(min-width:960px){ .panel-firma{grid-template-columns:1fr 1.05fr} }
+form{background:var(--blanco); border:1px solid var(--borde); border-radius:var(--radio); padding:clamp(22px,3vw,34px); box-shadow:var(--sombra)}
+.campo{margin-bottom:1rem}
+label{display:block; font-weight:700; font-size:.9rem; margin-bottom:.35rem}
+label .op{font-weight:500; color:var(--tinta-2)}
+input[type=text],input[type=email],textarea{
+  width:100%; padding:.75rem .9rem; font:inherit; color:var(--tinta);
+  background:#FCFCFA; border:1px solid var(--borde); border-radius:11px;
+}
+textarea{min-height:92px; resize:vertical}
+input:focus,textarea:focus{outline:none; border-color:var(--verde-3); box-shadow:0 0 0 3px rgba(31,138,95,.18)}
+.fila{display:grid; gap:1rem; grid-template-columns:1fr}
+@media(min-width:560px){ .fila{grid-template-columns:1fr 1fr} }
+.consentimiento{display:flex; gap:.6rem; align-items:flex-start; font-size:.88rem; color:var(--tinta-2); margin:1rem 0}
+.consentimiento input{margin-top:.25rem; width:18px; height:18px; accent-color:var(--verde-2); flex:none}
+.trampa{position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden}
+.aviso{margin-top:1rem; padding:.8rem 1rem; border-radius:11px; font-size:.92rem; display:none}
+.aviso.ok{display:block; background:rgba(31,138,95,.12); border:1px solid rgba(31,138,95,.3); color:#0A3D2A}
+.aviso.error{display:block; background:rgba(180,60,40,.09); border:1px solid rgba(180,60,40,.28); color:#7A2A1A}
+.nota{font-size:.8rem; color:var(--tinta-2); margin-top:1rem}
+.contador-firmas{background:var(--verde); color:#fff; border-radius:var(--radio); padding:clamp(22px,3vw,32px); box-shadow:var(--sombra)}
+.contador-firmas h3{color:#fff}
+.contador-firmas .n{font-size:clamp(2.6rem,7vw,3.6rem); font-weight:800; letter-spacing:-.03em; line-height:1}
+.contador-firmas p{color:#D6E9DF; margin:.35rem 0 0}
+.adhesiones{list-style:none; padding:0; margin:1.4rem 0 0; display:flex; flex-wrap:wrap; gap:.5rem}
+.adhesiones li{background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.2); border-radius:999px; padding:.35rem .75rem; font-size:.85rem}
+/* --- Pie --- */
+footer{background:var(--verde); color:#D6E9DF; padding:44px 0 32px}
+footer h3{color:#fff; font-size:1rem}
+footer a{color:#fff}
+.pie-rejilla{display:grid; gap:24px; grid-template-columns:1fr}
+@media(min-width:760px){ .pie-rejilla{grid-template-columns:2fr 1fr 1fr} }
+.pie-base{border-top:1px solid rgba(255,255,255,.18); margin-top:28px; padding-top:18px; font-size:.85rem; display:flex; flex-wrap:wrap; gap:.6rem 1.4rem; justify-content:space-between}
+/* === PAUSA: firmas y contador de visitas desactivados === */
+body[data-funciones="pausa"] .cifras,
+body[data-funciones="pausa"] .contador-firmas,
+body[data-funciones="pausa"] #formulario-firma{display:none}
+body:not([data-funciones="pausa"]) .aviso-pausa{display:none}
+.aviso-pausa{
+  background:var(--blanco); border:1px solid var(--borde); border-radius:var(--radio);
+  padding:clamp(22px,3vw,34px); box-shadow:var(--sombra);
+}
+.aviso-pausa .icono{
+  width:46px; height:46px; border-radius:12px; display:grid; place-items:center;
+  background:rgba(31,138,95,.12); margin-bottom:1rem;
+}
+.aviso-pausa p{color:var(--tinta-2); margin:0}
+.aviso-pausa p + p{margin-top:.75rem}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<!-- Para reactivar firmas y contador: cambiar a data-funciones="activas" -->
+<body data-funciones="pausa">
+
+<header class="barra">
+  <div class="contenedor">
+    <a class="marca" href="#inicio">
+      <svg width="34" height="34" viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="22" fill="#0A3D2A"/><path d="M12 62c12-10 22 8 34-2s20 6 32-4" stroke="#7DD3C4" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M12 42c12-10 22 8 34-2s20 6 32-4" stroke="#1F8A5F" stroke-width="7" fill="none" stroke-linecap="round" opacity=".8"/></svg>
+      <span>Corporación para el Desarrollo de Río Bueno</span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <div class="enlaces">
+        <a href="#mision">Misión</a>
+        <a href="#vision">Visión</a>
+        <a href="#pilares">Ejes</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <a class="btn btn-primario" href="#firmar">Firmar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <section class="hero">
+    <div class="contenedor">
+      <span class="etiqueta">Río Bueno · Región de Los Ríos</span>
+      <h1>Construyamos juntos el<br>Río Bueno que queremos</h1>
+      <p class="entrada">Somos una corporación ciudadana que impulsa el desarrollo sostenible, integral e inclusivo de nuestra comuna, uniendo al sector público, privado y a la sociedad civil.</p>
+      <div class="hero-acciones">
+        <a class="btn btn-primario" href="#firmar">Súmate a la causa</a>
+        <a class="btn btn-secundario" href="#mision">Conoce nuestra misión</a>
+      </div>
+      <div class="cifras">
+        <div class="cifra"><b id="cifra-firmas">—</b><small>Personas adheridas</small></div>
+        <div class="cifra"><b id="cifra-visitas">—</b><small>Visitas al sitio</small></div>
+      </div>
+    </div>
+    <svg class="olas" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="#F7F6F1" d="M0,64 C220,110 380,10 640,42 C880,72 1060,120 1440,58 L1440,120 L0,120 Z"></path>
+      <path fill="#F7F6F1" opacity=".45" d="M0,88 C260,40 460,120 720,86 C980,52 1200,20 1440,80 L1440,120 L0,120 Z"></path>
+    </svg>
+  </section>
+
+  <section class="seccion" id="mision">
+    <div class="contenedor">
+      <div class="rejilla-2">
+        <article class="tarjeta">
+          <div class="icono" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#12694A" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="#12694A"/></svg>
+          </div>
+          <h2>Misión</h2>
+          <p>Impulsar el desarrollo sostenible, integral e inclusivo de Río Bueno, fomentando el progreso económico, social, cultural y medio ambiental, mediante la participación ciudadana, la innovación, la colaboración entre los sectores público, privado y la sociedad civil; para así mejorar la calidad de vida de sus habitantes y potenciar su identidad local.</p>
+        </article>
+        <article class="tarjeta" id="vision">
+          <div class="icono" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#0E6E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h2>Visión</h2>
+          <p>Que la ciudad de Río Bueno sea reconocida como una comuna próspera y sostenible, preocupada de la inclusión social y la conservación de su patrimonio natural y cultural, ofreciendo una calidad de vida óptima para sus habitantes.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="pilares" style="padding-top:0">
+    <div class="contenedor">
+      <span class="etiqueta">Nuestros ejes</span>
+      <h2>Cuatro frentes, un solo territorio</h2>
+      <p style="max-width:60ch; color:var(--tinta-2)">Trabajamos de forma articulada en las dimensiones que definen la calidad de vida de quienes habitamos la comuna.</p>
+      <div class="rejilla-3" style="margin-top:2rem">
+        <div class="pilar">
+          <div class="punto" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6E6E" stroke-width="2" stroke-linecap="round"><path d="M3 17l5-5 4 4 8-8"/><path d="M21 8h-5V3" transform="translate(0,0)"/></svg></div>
+          <h3>Desarrollo económico</h3>
+          <p>Emprendimiento local, turismo y empleo de calidad para retener talento en la comuna.</p>
+        </div>
+        <div class="pilar">
+          <div class="punto" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 20v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="3.5"/><path d="M22 20v-2a4 4 0 0 0-3-3.9"/></svg></div>
+          <h3>Inclusión social</h3>
+          <p>Participación ciudadana real y oportunidades para todas las personas del territorio.</p>
+        </div>
+        <div class="pilar">
+          <div class="punto" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 4 6 9a6 6 0 0 1-12 0c0-5 6-9 6-9Z"/><path d="M12 21v-6"/></svg></div>
+          <h3>Medio ambiente</h3>
+          <p>Conservación del río, los humedales y el patrimonio natural que nos da identidad.</p>
+        </div>
+        <div class="pilar">
+          <div class="punto" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0E6E6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-7h6v7"/></svg></div>
+          <h3>Cultura e identidad</h3>
+          <p>Poner en valor la historia, las tradiciones y el patrimonio cultural riobuenino.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="firmar">
+    <div class="contenedor">
+      <div class="panel-firma">
+        <div>
+          <span class="etiqueta">Súmate</span>
+          <h2>Firma y anótate por la causa</h2>
+          <p style="color:var(--tinta-2)">Tu adhesión respalda el trabajo de la Corporación y nos permite demostrar, con nombres concretos, que Río Bueno quiere avanzar. Toma menos de un minuto.</p>
+          <div class="contador-firmas" style="margin-top:1.5rem">
+            <h3 style="margin-bottom:.4rem">Personas adheridas</h3>
+            <div class="n" id="total-firmas">—</div>
+            <p>Gracias a cada persona que se suma.</p>
+            <ul class="adhesiones" id="ultimas-firmas" aria-live="polite"></ul>
+          </div>
+        </div>
+
+        <div class="aviso-pausa">
+          <div class="icono" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#12694A" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          </div>
+          <h3>El registro de adhesiones abre pronto</h3>
+          <p>Estamos terminando de habilitar el formulario para firmar y anotarse por la causa. Vuelve en unos días.</p>
+          <p>Mientras tanto puedes escribirnos a <a href="mailto:contacto@coderiobueno.cl">contacto@coderiobueno.cl</a>.</p>
+        </div>
+
+        <form id="formulario-firma" novalidate>
+          <div class="campo">
+            <label for="nombre">Nombre y apellido</label>
+            <input type="text" id="nombre" name="nombre" autocomplete="name" required maxlength="80" placeholder="Ej: María González">
+          </div>
+          <div class="fila">
+            <div class="campo">
+              <label for="comuna">Comuna</label>
+              <input type="text" id="comuna" name="comuna" maxlength="60" value="Río Bueno" autocomplete="address-level2">
+            </div>
+            <div class="campo">
+              <label for="email">Correo <span class="op">(opcional)</span></label>
+              <input type="email" id="email" name="email" maxlength="120" autocomplete="email" placeholder="tu@correo.cl">
+            </div>
+          </div>
+          <div class="campo">
+            <label for="mensaje">Tu mensaje <span class="op">(opcional)</span></label>
+            <textarea id="mensaje" name="mensaje" maxlength="280" placeholder="¿Qué te gustaría que mejorara en Río Bueno?"></textarea>
+          </div>
+
+          <div class="trampa" aria-hidden="true">
+            <label for="campo_reservado">No completar</label>
+            <input type="text" id="campo_reservado" name="campo_reservado" tabindex="-1" autocomplete="off">
+          </div>
+
+          <label class="consentimiento">
+            <input type="checkbox" id="consentimiento" required>
+            <span>Autorizo a la Corporación para el Desarrollo de Río Bueno a registrar y usar estos datos únicamente para fines de esta convocatoria, conforme a la Ley 19.628 sobre protección de la vida privada.</span>
+          </label>
+
+          <button type="submit" class="btn btn-primario" id="boton-enviar" style="width:100%">Firmar por Río Bueno</button>
+          <div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+          <p class="nota">No publicamos tu correo. En el listado público solo mostramos tu nombre de pila, la inicial de tu apellido y tu comuna.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contacto">
+  <div class="contenedor">
+    <div class="pie-rejilla">
+      <div>
+        <h3>Corporación para el Desarrollo de Río Bueno</h3>
+        <p style="max-width:44ch">Organización sin fines de lucro por el desarrollo sostenible, integral e inclusivo de nuestra comuna.</p>
+      </div>
+      <div>
+        <h3>Navegación</h3>
+        <p><a href="#mision">Misión</a><br><a href="#vision">Visión</a><br><a href="#pilares">Ejes</a><br><a href="#firmar">Firmar</a></p>
+      </div>
+      <div>
+        <h3>Contacto</h3>
+        <p><a href="mailto:contacto@coderiobueno.cl">contacto@coderiobueno.cl</a><br>Río Bueno, Región de Los Ríos, Chile</p>
+      </div>
+    </div>
+    <div class="pie-base">
+      <span>© <span id="anio">2026</span> Corporación para el Desarrollo de Río Bueno</span>
+      <span>coderiobueno.cl</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var nf = new Intl.NumberFormat('es-CL');
+  var $ = function(id){ return document.getElementById(id); };
+  $('anio').textContent = new Date().getFullYear();
+
+  // Firmas y contador en pausa: no se hace ninguna llamada a /api.
+  if (document.body.dataset.funciones === 'pausa') return;
+
+  function pintarTotalFirmas(n){
+    if (typeof n !== 'number') return;
+    $('total-firmas').textContent = nf.format(n);
+    $('cifra-firmas').textContent = nf.format(n);
+  }
+
+  // --- Contador de visitas: incrementa una sola vez por sesión ---
+  (function contador(){
+    var nueva = !sessionStorage.getItem('crb-visita');
+    fetch('/api/visitas', { method: nueva ? 'POST' : 'GET' })
+      .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function(d){
+        if (nueva) sessionStorage.setItem('crb-visita', '1');
+        $('cifra-visitas').textContent = nf.format(d.total);
+      })
+      .catch(function(){ $('cifra-visitas').textContent = '—'; });
+  })();
+
+  // --- Firmas registradas ---
+  function cargarFirmas(){
+    fetch('/api/firmas')
+      .then(function(r){ return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function(d){
+        pintarTotalFirmas(d.total);
+        var ul = $('ultimas-firmas');
+        ul.innerHTML = '';
+        (d.ultimas || []).forEach(function(f){
+          var li = document.createElement('li');
+          li.textContent = f.nombre + ' · ' + f.comuna;
+          ul.appendChild(li);
+        });
+      })
+      .catch(function(){});
+  }
+  cargarFirmas();
+
+  // --- Envío del formulario ---
+  var form = $('formulario-firma');
+  var aviso = $('aviso');
+  var boton = $('boton-enviar');
+
+  function mostrar(tipo, texto){
+    aviso.className = 'aviso ' + tipo;
+    aviso.textContent = texto;
+  }
+
+  var mensajes = {
+    'nombre-invalido': 'Por favor escribe tu nombre completo.',
+    'email-invalido': 'Revisa el formato de tu correo.',
+    'consentimiento-requerido': 'Debes autorizar el uso de tus datos para firmar.',
+    'demasiadas-solicitudes': 'Recibimos varias firmas desde tu conexión. Intenta más tarde.',
+    'store-no-configurado': 'El sistema de firmas aún no está configurado. Vuelve a intentarlo pronto.'
+  };
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    aviso.className = 'aviso';
+
+    var datos = {
+      nombre: $('nombre').value,
+      comuna: $('comuna').value,
+      email: $('email').value,
+      mensaje: $('mensaje').value,
+      campo_reservado: $('campo_reservado').value,
+      consentimiento: $('consentimiento').checked
+    };
+
+    if (datos.nombre.trim().length < 3) return mostrar('error', mensajes['nombre-invalido']);
+    if (!datos.consentimiento) return mostrar('error', mensajes['consentimiento-requerido']);
+
+    boton.disabled = true;
+    boton.textContent = 'Enviando…';
+
+    fetch('/api/firmar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(datos)
+    })
+      .then(function(r){ return r.json().then(function(d){ return { ok: r.ok, d: d }; }); })
+      .then(function(res){
+        if (!res.ok) throw res.d;
+        if (res.d.duplicado) {
+          mostrar('ok', 'Ese correo ya estaba registrado. ¡Gracias igualmente!');
+        } else {
+          mostrar('ok', '¡Gracias por firmar! Tu adhesión quedó registrada.');
+          form.reset();
+          $('comuna').value = 'Río Bueno';
+        }
+        pintarTotalFirmas(res.d.total);
+        cargarFirmas();
+      })
+      .catch(function(err){
+        var codigo = err && err.error;
+        mostrar('error', mensajes[codigo] || 'No pudimos registrar tu firma. Intenta nuevamente.');
+      })
+      .finally(function(){
+        boton.disabled = false;
+        boton.textContent = 'Firmar por Río Bueno';
+      });
+  });
+})();
+</script>
+</body>
+</html>
