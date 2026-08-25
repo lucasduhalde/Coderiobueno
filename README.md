@@ -10,6 +10,17 @@ HTML/CSS/JS estático + funciones serverless de Vercel. Sin build.
 - `api/firmas.js` — total + últimas adhesiones anonimizadas. Con `?token=ADMIN_TOKEN` devuelve el CSV completo.
 - `og.png` — imagen de previsualización (degradado sin texto; placeholder, el texto del preview viene de `og:title`).
 - `lib/store.js` — adaptador Redis (fuera de `api/` para que Vercel no lo trate como endpoint).
+- `robots.txt` / `sitemap.xml` — SEO. Ambos declaran el host **con www**.
+- `Noticias/` — imágenes de la sección de noticias.
+
+## SEO
+El dominio oficial es **`https://www.coderiobueno.cl/`** (el dominio desnudo redirige ahí con 308).
+`canonical`, `og:url`, `og:image`, el JSON-LD y `sitemap.xml` deben apuntar **todos** a la versión con www; si algún día se invierte la redirección en Vercel, hay que cambiar los cinco a la vez.
+
+`index.html` incluye datos estructurados JSON-LD (`NGO` + `WebSite`). Al agregar redes sociales, sumarlas al campo `sameAs` del bloque `NGO`.
+
+Actualizar `<lastmod>` en `sitemap.xml` cuando se publique contenido nuevo.
+
 
 ## Estado actual: firmas y contador EN PAUSA
 
