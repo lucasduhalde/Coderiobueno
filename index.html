@@ -137,9 +137,13 @@ a{color:var(--verde-2)}
 .noticia.destacada{grid-column:1/-1}
 @media(min-width:900px){
   .noticia.destacada{flex-direction:row}
-  .noticia.destacada.invertida{flex-direction:row-reverse}
   .noticia.destacada .noticia-foto{flex:0 0 46%}
 }
+/* Nota a ancho completo con la foto arriba: para imágenes panorámicas,
+   que en una columna angosta habría que recortar y ampliar demasiado. */
+.noticia.panoramica{grid-column:1/-1}
+.noticia.panoramica .noticia-foto img{height:auto; min-height:0}
+.noticia.panoramica .noticia-cuerpo>*{max-width:74ch}
 .noticia-foto{margin:0; background:#E8E6DE}
 .noticia-foto img{width:100%; height:100%; min-height:220px; object-fit:cover}
 .noticia-cuerpo{padding:clamp(20px,2.6vw,32px); display:flex; flex-direction:column; justify-content:center; flex:1; min-width:0}
@@ -411,9 +415,9 @@ body:not([data-funciones="pausa"]) .aviso-pausa{display:none}
           </div>
         </article>
 
-        <article class="noticia destacada invertida">
+        <article class="noticia panoramica">
           <figure class="noticia-foto">
-            <img src="Noticias/ConcejoMunicipal-RioBueno.jpeg" width="1860" height="796" loading="lazy" decoding="async"
+            <img src="Noticias/ConcejoMunicipal-RioBueno.jpeg" width="2240" height="959" loading="lazy" decoding="async"
                  alt="Sesión del Concejo Municipal de Río Bueno durante la exposición de la Corporación sobre la protección de las aguas del río Bueno.">
           </figure>
           <div class="noticia-cuerpo">
