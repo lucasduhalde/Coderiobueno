@@ -147,6 +147,9 @@ a{color:var(--verde-2)}
 .noticia h3{font-size:clamp(1.15rem,2.2vw,1.5rem); margin-bottom:.7rem}
 .noticia p{color:var(--tinta-2); margin:0}
 .noticia p + p{margin-top:.8rem}
+.noticia-fuente{font-size:.88rem; color:var(--tinta-2); margin-top:1rem}
+.noticia-fuente cite{font-style:normal; font-weight:700}
+.noticia-fuente a{color:var(--agua); text-decoration:underline; text-underline-offset:2px}
 .noticia-etiquetas{display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1.2rem}
 .noticia-etiquetas span{
   font-size:.74rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
@@ -382,7 +385,7 @@ body:not([data-funciones="pausa"]) .aviso-pausa{display:none}
             <time datetime="2026-08-26">26 de agosto de 2026</time>
             <h3>Entrevista en San José de Alcudia TV: un llamado a proteger nuestro río Bueno</h3>
             <p><b>CODE Río Bueno</b> estuvo en <b>San José de Alcudia TV</b> haciendo un llamado a <b>aunar esfuerzos con la comunidad</b> para la protección de nuestro río Bueno.</p>
-            <p><a href="https://web.facebook.com/sanjose.dealcudia/videos/1599965618269505/" target="_blank" rel="noopener">Ver la entrevista completa</a></p>
+            <p class="noticia-fuente">Fuente: <cite>San José de Alcudia TV</cite> — <a href="https://web.facebook.com/sanjose.dealcudia/videos/1599965618269505/" target="_blank" rel="noopener noreferrer">ver la entrevista en Facebook</a>.</p>
             <div class="noticia-etiquetas">
               <span>Medios locales</span>
               <span>Comunidad</span>
