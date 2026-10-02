@@ -137,9 +137,13 @@ a{color:var(--verde-2)}
 .noticia.destacada{grid-column:1/-1}
 @media(min-width:900px){
   .noticia.destacada{flex-direction:row}
-  .noticia.destacada.invertida{flex-direction:row-reverse}
   .noticia.destacada .noticia-foto{flex:0 0 46%}
 }
+/* Nota a ancho completo con la foto arriba: para imágenes panorámicas,
+   que en una columna angosta habría que recortar y ampliar demasiado. */
+.noticia.panoramica{grid-column:1/-1}
+.noticia.panoramica .noticia-foto img{height:auto; min-height:0}
+.noticia.panoramica .noticia-cuerpo>*{max-width:74ch}
 .noticia-foto{margin:0; background:#E8E6DE}
 .noticia-foto img{width:100%; height:100%; min-height:220px; object-fit:cover}
 .noticia-cuerpo{padding:clamp(20px,2.6vw,32px); display:flex; flex-direction:column; justify-content:center; flex:1; min-width:0}
@@ -147,20 +151,18 @@ a{color:var(--verde-2)}
 .noticia h3{font-size:clamp(1.15rem,2.2vw,1.5rem); margin-bottom:.7rem}
 .noticia p{color:var(--tinta-2); margin:0}
 .noticia p + p{margin-top:.8rem}
-.noticia-fuente{font-size:.88rem; color:var(--tinta-2); margin-top:1rem}
+.noticia-fuente{
+  margin-top:1.1rem; padding-top:.9rem; border-top:1px solid var(--borde);
+  font-size:.82rem; color:var(--tinta-2);
+}
 .noticia-fuente cite{font-style:normal; font-weight:700}
-.noticia-fuente a{color:var(--agua); text-decoration:underline; text-underline-offset:2px}
+.noticia-fuente a{color:var(--agua); font-weight:600; text-decoration:underline; text-underline-offset:2px}
 .noticia-etiquetas{display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1.2rem}
 .noticia-etiquetas span{
   font-size:.74rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
   color:var(--verde-2); background:rgba(31,138,95,.10); border:1px solid rgba(31,138,95,.22);
   padding:.28rem .6rem; border-radius:999px;
 }
-.noticia-fuente{
-  margin-top:1.1rem; padding-top:.9rem; border-top:1px solid var(--borde);
-  font-size:.82rem; color:var(--tinta-2);
-}
-.noticia-fuente a{color:var(--agua); font-weight:600}
 /* --- Firmas --- */
 #firmar{background:linear-gradient(180deg,var(--crema) 0%, #EDF2EE 100%)}
 .panel-firma{display:grid; gap:clamp(24px,3vw,44px); grid-template-columns:1fr; align-items:start}
@@ -361,6 +363,24 @@ body:not([data-funciones="pausa"]) .aviso-pausa{display:none}
       <div class="rejilla-noticias" style="margin-top:2rem">
         <article class="noticia destacada">
           <figure class="noticia-foto">
+            <img src="Noticias/ReunionCoresRanco.jpeg" width="1600" height="1200" loading="lazy" decoding="async"
+                 alt="Reunión de la Corporación para el Desarrollo de Río Bueno con los Consejeros Regionales de la Provincia del Ranco, en torno a mesas dispuestas en U.">
+          </figure>
+          <div class="noticia-cuerpo">
+            <time datetime="2026-09-26">26 de septiembre de 2026</time>
+            <h3>Presentamos proyectos estratégicos a los Consejeros Regionales de la Provincia del Ranco</h3>
+            <p>Una fructífera reunión sostuvo la Corporación para el Desarrollo de Río Bueno con los Consejeros Regionales de la Provincia del Ranco <b>Catalina Hott</b>, <b>Sarita Jaramillo</b> y <b>Sebastián Gómez</b>, en la cual se dieron a conocer <b>proyectos estratégicos</b> para la comunidad riobuenina.</p>
+            <p>Como Coderiobueno creemos en las <b>alianzas público-privadas</b> para desarrollar temáticas que vayan en beneficio de mejorar la calidad de vida de las personas.</p>
+            <div class="noticia-etiquetas">
+              <span>Consejo Regional</span>
+              <span>Alianzas público-privadas</span>
+              <span>Proyectos estratégicos</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="noticia destacada">
+          <figure class="noticia-foto">
             <img src="Noticias/ReunionUaustral.jpeg" width="960" height="1280" loading="lazy" decoding="async"
                  alt="Reunión de la Corporación para el Desarrollo de Río Bueno con el jefe de gabinete de Rectoría de la Universidad Austral de Chile en el Salón Rojo de la Casa Central.">
           </figure>
@@ -411,9 +431,9 @@ body:not([data-funciones="pausa"]) .aviso-pausa{display:none}
           </div>
         </article>
 
-        <article class="noticia destacada invertida">
+        <article class="noticia panoramica">
           <figure class="noticia-foto">
-            <img src="Noticias/ConcejoMunicipal-RioBueno.jpeg" width="1860" height="796" loading="lazy" decoding="async"
+            <img src="Noticias/ConcejoMunicipal-RioBueno.jpeg" width="2240" height="959" loading="lazy" decoding="async"
                  alt="Sesión del Concejo Municipal de Río Bueno durante la exposición de la Corporación sobre la protección de las aguas del río Bueno.">
           </figure>
           <div class="noticia-cuerpo">
